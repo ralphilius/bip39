@@ -46,9 +46,8 @@ jobs:
       with: 
         patterns: |
           bip39-standalone.html
-
-    - name: Echo hash
-      run: echo ${{ steps.get-hash.outputs.hash }}
+    # - name: Echo hash
+    #   run: echo ${{ steps.get-hash.outputs.hash }}
     # - uses: actions/upload-artifact@v2
     #   with:
     #     name: Asset Hashes
