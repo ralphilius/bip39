@@ -37,19 +37,27 @@ jobs:
     - name: Build project
       run: |
         python compile.py
-    - uses: MCJack123/ghaction-generate-release-hashes@v3
-      with:
-        hash-type: sha256
-        file-name: bip39-standalone.html
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Asset Hashes
-        path: bip39-standalone.html
-    # - name: Upload to Release Action
-    #   - uses: actions/upload-artifact@v4
-    #     with:
-    #       name: my-artifact
-    #       path: bip39-standalone.html
+    # - uses: MCJack123/ghaction-generate-release-hashes@v3
+    #   with:
+    #     hash-type: sha256
+    #     file-name: bip39-standalone.html
+    - uses: seepine/hash-files@v1
+      id: get-hash
+      with: 
+        patterns: |
+          bip39-standalone.html
+
+    - name: Echo hash
+      run: echo ${{ steps.get-hash.outputs.hash }}
+    # - uses: actions/upload-artifact@v2
+    #   with:
+    #     name: Asset Hashes
+    #     path: bip39-standalone.html
+    - name: Upload to Release Action
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.get-hash.outputs.hash }}
+          path: bip39-standalone.html
       # You may pin to the exact commit or the version.
       # uses: Shopify/upload-to-release@c77c9b3e5d288adaef98a7007bf92340ec6ce03b
       # uses: Shopify/upload-to-release@v2.0.0
