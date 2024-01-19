@@ -2312,6 +2312,13 @@
             },
         },
         {
+            name: "APT - Aptos",
+            onSelect: function() {
+                network = libs.bitcoin.networks.bitcoin;
+                setHdCoin(637);
+            },
+        },
+        {
             name: "ARYA - Aryacoin",
             onSelect: function() {
                 network = libs.bitcoin.networks.aryacoin;
