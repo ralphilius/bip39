@@ -47,7 +47,7 @@ jobs:
         # Path to the file to upload
         path: bip39-standalone.html
         # Content type for the file
-        content-type: application/html # optional, default is application/octet-stream
+        content-type: text/html # optional, default is application/octet-stream
         # secrets.GITHUB_TOKEN
-        repo-token: secrets.GITHUB_TOKEN
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
           
