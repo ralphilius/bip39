@@ -53,10 +53,10 @@ jobs:
     #     name: Asset Hashes
     #     path: bip39-standalone.html
     - name: Upload to Release Action
-      - uses: actions/upload-artifact@v4
-        with:
-          name: ${{ steps.get-hash.outputs.hash }}
-          path: bip39-standalone.html
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ steps.get-hash.outputs.hash }}
+        path: bip39-standalone.html
       # You may pin to the exact commit or the version.
       # uses: Shopify/upload-to-release@c77c9b3e5d288adaef98a7007bf92340ec6ce03b
       # uses: Shopify/upload-to-release@v2.0.0
